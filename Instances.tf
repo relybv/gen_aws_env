@@ -19,4 +19,10 @@ module "ec2_instance" {
   subnet_id = "${var.subnet_id}"
   number_of_instances = "${var.ec2_webserver_instance_count}"
   user_data = "${var.ec2_webserver_userdata}"
+  tags {
+    "environment" = "${var.gen_tag_environment}"
+    "customer" = "${var.gen_tag_customer}"
+    "project" = "${var.gen_tag_project}"
+    "created by" = "${var.gen_tag_createdby}"
+  }
 }
