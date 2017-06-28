@@ -60,18 +60,21 @@ variable "vpc_public_subnet" {
     default = ["172.10.10.0/24"]
 }
 variable "vpc_nat_enable" {
-    default = "true"
+    default = "false"
 }
 variable "vpc_zones" {
     default = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
 }
-
 ############### Public Subnet module ###############
 variable "pub_subnet_name" {
     default = "frontnet"
 }
 variable "front_cidr" {
     default = "172.10.0.0/16"
+}
+############### Security group module ###############
+variable "security_group_name" {
+    default = "shcc-sg"
 }
 ############### EC2 Webserver Instance module ###############
 variable "ec2_webserver_instance_type" {
