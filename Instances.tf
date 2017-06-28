@@ -16,7 +16,8 @@ module "webserver" {
   aws_access_key = "${var.aws_access_key}"
   aws_secret_key = "${var.aws_secret_key}"
   aws_region = "${var.gen_aws_region}"
-  subnet_id = "${module.vpc.public_subnets[0]}"
+# todo: create global var for vpc name
+  subnet_id = "${module.shcc.public_subnets[0]}"
   number_of_instances = "${var.ec2_webserver_instance_count}"
   user_data = "${var.ec2_webserver_userdata}"
   tags {
