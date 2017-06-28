@@ -19,7 +19,6 @@ module "webserver" {
   subnet_id = "${module.vpc.public_subnets[0]}"
   number_of_instances = "${var.ec2_webserver_instance_count}"
   user_data = "${var.ec2_webserver_userdata}"
-
   tags {
     "environment" = "${lookup(var.tags,"gen_tag_environment")}"
     "customer" = "${lookup(var.tags,"gen_tag_customer")}"
