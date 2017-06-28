@@ -1,3 +1,12 @@
+############################################################################
+#  Webserver instances
+#
+#  Version 1.0
+#  Date 28-06-2016
+#
+#  Outline: creates VPC with two subnets (public/private)
+#
+############################################################################
 module "vpc" {
   source = "github.com/terraform-community-modules/tf_aws_vpc"
 
@@ -12,9 +21,10 @@ module "vpc" {
   azs      = "${var.vpc_zones}"
 
   tags {
-    "environment" = "${var.gen_tag_environment}"
-    "customer" = "${var.gen_tag_customer}"
-    "project" = "${var.gen_tag_project}"
-    "created by" = "${var.gen_tag_createdby}"
+    "environment" = "${lookup(var.tags,"gen_tag_environment")}"
+    "customer" = "${lookup(var.tags,"gen_tag_customer")}"
+    "project" = "${lookup(var.tags,"gen_tag_project")}"
+    "builder" = "${lookup(var.tags,"created_by")}"
+    "created_by" = "${lookup(var.tags,"created_by")}"
   }
 }

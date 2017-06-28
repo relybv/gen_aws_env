@@ -27,19 +27,14 @@ variable "aws_access_key" {}
 variable "aws_secret_key" {}
 
 ############### Tag definitions ###############
-variable "gen_tag_environment" {
-    default = "test"
-}
-variable "gen_tag_customer" {
-    default = "shcc"
-}
-variable "gen_tag_project" {
-    default = "production"
-}
-variable "gen_tag_createdby" {
-    default = "Patrick"
-}
-
+variable "tags" {
+  default = {
+    created_by = "patrick"
+    gen_tag_customer = "shcc"
+    gen_tag_project = "production"
+    gen_tag_environment = "test"
+  }
+ }
 ############### Swift definitions ###############
 variable "swift_bucket_name" {
     default = "terraform-state-dirict-acc"
@@ -77,6 +72,22 @@ variable "pub_subnet_name" {
 }
 variable "front_cidr" {
     default = "172.10.0.0/16"
+}
+############### EC2 Webserver Instance module ###############
+variable "ec2_webserver_instance_type" {
+    default = "t2.micro"
+}
+variable "ec2_webserver_instance_name" {
+    default = "webserver"
+}
+variable "ec2_webserver_ami_id" {
+    default = "ami-82be18ed"
+}
+variable "ec2_webserver_instance_count" {
+    default = "1"
+}
+variable "ec2_webserver_userdata" {
+    default = "webserver-userdata.sh"
 }
 ############### Storage device definitions ###############
 variable "web_gb" {
