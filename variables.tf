@@ -21,6 +21,9 @@ variable "gen_aws_region" {
 variable "gen_domain_base" {
     default = "openstack.rely.nl"
 }
+variable "gen_ssl_certificate_id" {
+    default = "shcc"
+}
 
 # specify AWS credentials as 'export TF_VAR_aws_access_key=<accesskey>; export TF_VAR_aws_secret_key=<secretkey>'
 variable "aws_access_key" {}
@@ -57,7 +60,7 @@ variable "vpc_private_subnet" {
     default = ["172.10.1.0/24"]
 }
 variable "vpc_public_subnet" {
-    default = ["172.10.10.0/24"]
+    default = ["172.10.10.0/24","172.10.20.0/24"]
 }
 variable "vpc_nat_enable" {
     default = "false"
@@ -75,6 +78,19 @@ variable "front_cidr" {
 ############### Security group module ###############
 variable "security_group_name" {
     default = "shcc-sg"
+}
+############### ELB module ###############
+variable "elb_name" {
+    default = "shcc"
+}
+variable "elb_backend_port" {
+    default = "443"
+}
+variable "elb_backend_protocol" {
+    default = "tcp"
+}
+variable "elb_health_check_target" {
+    default = "HTTP:80/health"
 }
 ############### EC2 Webserver Instance module ###############
 variable "ec2_webserver_instance_type" {
