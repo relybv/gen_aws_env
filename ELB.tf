@@ -32,5 +32,5 @@ module "http_elb" {
   aws_access_key = "${var.aws_access_key}"
   aws_secret_key = "${var.aws_secret_key}"
   aws_region = "${var.gen_aws_region}"
-  elb_security_group = "${var.security_group_name}-elb"
+  elb_security_group = "${module.elb_sg.security_group_id_web}"
 }
