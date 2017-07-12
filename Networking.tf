@@ -15,6 +15,8 @@ module "shcc" {
   public_subnets  = "${var.vpc_public_subnet}"
   enable_nat_gateway = "${var.vpc_nat_enable}"
   azs = "${var.vpc_zones}"
+  enable_dns_hostnames = "true"
+  enable_dns_support = "true"
   tags {
     "environment" = "${lookup(var.tags,"gen_tag_environment")}"
     "customer" = "${lookup(var.tags,"gen_tag_customer")}"

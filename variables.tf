@@ -16,10 +16,10 @@ variable "gen_environment" {
     default = "test"
 }
 variable "gen_aws_region_name" {
-  default     = "frankfurt"
+  default     = "ireland"
 }
 variable "gen_aws_region" {
-  default     = "eu-central-1"
+  default     = "eu-west-1"
 }
 variable "gen_ssl_certificate_id" {
     default = "shcc"
@@ -39,16 +39,6 @@ variable "tags" {
     gen_tag_environment = "test"
   }
  }
-############### Swift definitions ###############
-variable "swift_bucket_name" {
-    default = "terraform-state-dirict-acc"
-}
-variable "swift_key" {
-    default = "/tfpatrick.tfstate"
-}
-variable "swift_region" {
-    default = "eu-central-1"
-}
 ############### VPC module ###############
 variable "vpc_name" {
     default = "testvpc"
@@ -57,16 +47,16 @@ variable "vpc_cidr" {
     default = "172.10.0.0/16"
 }
 variable "vpc_private_subnet" {
-    default = ["172.10.1.0/24"]
+    default = ["172.10.1.0/24","172.10.2.0/24","172.10.3.0/24"]
 }
 variable "vpc_public_subnet" {
-    default = ["172.10.10.0/24","172.10.20.0/24"]
+    default = ["172.10.10.0/24","172.10.20.0/24","172.10.30.0/24"]
 }
 variable "vpc_nat_enable" {
     default = "false"
 }
 variable "vpc_zones" {
-    default = ["eu-central-1a", "eu-central-1b"]
+    default = ["eu-west-1a", "eu-west-1b","eu-west-1c"]
 }
 ############### Public Subnet module ###############
 variable "pub_subnet_name" {
@@ -84,23 +74,26 @@ variable "elb_name" {
     default = "shcc"
 }
 variable "elb_backend_port" {
-    default = "443"
+    default = "80"
 }
 variable "elb_backend_protocol" {
     default = "http"
 }
 variable "elb_health_check_target" {
-    default = "HTTP:80/health"
+    default = "tcp:80"
 }
 variable "elb_health_check_type" {
-    default = "ELB"
+    default = "EC2"
+}
+variable "elb_internal" {
+  default = "false"
 }
 ############### Auto scaling group module ###############
 variable "asg_lc_name" {
     default = "webfront"
 }
 variable "asg_ami_id" {
-    default = "ami-82be18ed"
+    default = "ami-ef937196"
 }
 variable "asg_instance_type" {
     default = "t2.micro"
@@ -121,7 +114,7 @@ variable "asg_minimum_number_of_instances" {
     default = "1"
 }
 variable "asg_subnets" {
-    default = "eu-central-1a,eu-central-1b"
+    default = "eu-west-1a,eu-west-1b"
 }
 ############### EC2 Webserver Instance module ###############
 variable "ec2_webserver_instance_type" {
@@ -140,6 +133,9 @@ variable "ec2_webserver_userdata" {
     default = "webserver-userdata.sh"
 }
 ############### Storage device definitions ###############
+variable "efs_name" {
+    default = "webstore"
+}
 variable "web_gb" {
     default = 20
 }
