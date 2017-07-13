@@ -102,7 +102,7 @@ variable "asg_iam_instance_profile" {
     default = "arn:aws:iam::300369274369:instance-profile/Mys3admin"
 }
 variable "asg_webserver_userdata" {
-    default = "webserver-userdata.sh"
+    default = "webserver.tpl"
 }
 variable "asg_name" {
     default = "webservers"

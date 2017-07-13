@@ -16,7 +16,7 @@ module "my_autoscaling_group" {
   iam_instance_profile = "${var.asg_iam_instance_profile}"
   key_name = "${var.gen_key_name}"
   security_group = "${module.elb_sg.security_group_id_web}"
-  user_data = "${var.asg_webserver_userdata}"
+  user_data = "${template_file.webserver.rendered}"
   asg_name = "${var.asg_name}"
   asg_number_of_instances = "${var.asg_number_of_instances}"
   asg_minimum_number_of_instances = "${var.asg_minimum_number_of_instances}"

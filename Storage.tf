@@ -23,3 +23,6 @@ output "targets" {
 output "interfaces" {
   value = "${module.efs_mount.mount_target_interface_ids}"
 }
+output "ip_address" {
+  value = "${module.efs_mount.mount_address}"
+}
