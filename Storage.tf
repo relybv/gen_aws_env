@@ -17,12 +17,12 @@ module "efs_mount" {
   vpc_net_cidr = "${var.vpc_public_subnet}"
 }
 
-output "targets" {
+output "EFS_targets" {
   value = "${module.efs_mount.mount_target_ids}"
 }
-output "interfaces" {
+output "EFS_interfaces" {
   value = "${module.efs_mount.mount_target_interface_ids}"
 }
-output "ip_address" {
+output "EFS_ip_address" {
   value = "${module.efs_mount.mount_address}"
 }

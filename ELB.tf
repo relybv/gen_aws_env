@@ -37,5 +37,5 @@ module "http_elb" {
 }
 
 output "ELB_DNS_name" {
-  value = "${module.https_elb.elb_dns_name}"
+  value = "${module.http_elb.elb_dns_name}"
 }

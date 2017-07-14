@@ -8,3 +8,6 @@ echo "mounting ${storage_ip} as docroot"
 sudo mount -t nfs ${storage_ip}:/ /docroot
 sudo rm -rf /var/www/html
 sudo ln -s /docroot /var/www/html
+cd /docroot
+echo "Getting sample html file if none there"
+sudo wget https://raw.githubusercontent.com/relybv/html_sample/master/index.html
