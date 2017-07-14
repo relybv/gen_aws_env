@@ -9,7 +9,7 @@
 ############################################################################
 
 module "efs_mount" {
-  source = "github.com/manheim/tf_efs_mount"
+  source = "github.com/relybv/aws_efs_module"
 
   name    = "${var.efs_name}"
   subnets = "${module.shcc.public_subnets[2]}"

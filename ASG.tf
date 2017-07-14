@@ -9,7 +9,7 @@
 ############################################################################
 
 module "my_autoscaling_group" {
-  source = "github.com/terraform-community-modules/tf_aws_asg_elb"
+  source = "github.com/relybv/aws_asg_lc_module"
   lc_name = "${var.asg_lc_name}"
   ami_id = "${var.asg_ami_id}"
   instance_type = "${var.asg_instance_type}"
