@@ -35,3 +35,7 @@ module "http_elb" {
   aws_region = "${var.gen_aws_region}"
   elb_security_group = "${module.elb_sg.security_group_id_web}"
 }
+
+output "ELB_DNS_name" {
+  value = "${module.https_elb.elb_dns_name}"
+}
