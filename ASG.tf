@@ -2,7 +2,7 @@
 #  Autoscaler Group definition
 #
 #  Version 1.0
-#  Date 06-07-2016
+#  Date 06-07-2017
 #
 #  Outline: The autoscaler group.
 #
