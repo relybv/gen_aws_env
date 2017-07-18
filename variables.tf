@@ -132,6 +132,37 @@ variable "ec2_webserver_instance_count" {
 variable "ec2_webserver_userdata" {
     default = "webserver-userdata.sh"
 }
+############### RDS Database module ###############
+variable "rds_instance_identifier" {
+    default = "shcc-test-database"
+}
+variable "rds_allocated_storage" {
+    default = "5"
+}
+variable "rds_engine_type" {
+    default = "MySQL"
+}
+variable "rds_instance_class" {
+    default = "db.t2.micro"
+}
+variable "rds_engine_version" {
+    default = "5.6.35"
+}
+variable "db_parameter_group" {
+    default = "mysql5.6"
+}
+variable "database_name" {
+    default = "test"
+}
+variable "database_user" {
+    default = "shcctest"
+}
+variable "database_password" {
+    default = "Changeme!"
+}
+variable "database_port" {
+    default = "3306"
+}
 ############### Storage device definitions ###############
 variable "efs_name" {
     default = "webstore"
