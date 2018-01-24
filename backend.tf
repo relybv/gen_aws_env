@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "terraform-state-shcc"
+    bucket = "terraform-state-test"
     key    = "terraform/test"
   }
 }

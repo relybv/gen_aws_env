@@ -10,7 +10,7 @@
 
 ############### Generic definitions ###############
 variable "gen_customer" {
-    default = "shcc_test"
+    default = "aws_test"
 }
 variable "gen_environment" {
     default = "test"
@@ -22,7 +22,7 @@ variable "gen_aws_region" {
   default     = "eu-west-1"
 }
 variable "gen_ssl_certificate_id" {
-    default = "shcc"
+    default = "aws-test"
 }
 variable "gen_key_name" {
     default = "patrick"
@@ -34,8 +34,8 @@ variable "aws_secret_key" {}
 variable "tags" {
   default = {
     created_by = "patrick"
-    gen_tag_customer = "shcc"
-    gen_tag_project = "production"
+    gen_tag_customer = "Claranet"
+    gen_tag_project = "demo"
     gen_tag_environment = "test"
   }
  }
